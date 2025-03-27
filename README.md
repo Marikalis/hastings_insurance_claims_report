@@ -1,86 +1,105 @@
-# Insurance Claims Analysis for Head-On Collisions
+# 🚗 Predicting Claims Costs Using FNOL Data
 
-## 1. Introduction
+This repository presents a data analysis project focused on predicting insurance claims costs using First Notification of Loss (FNOL) data. The analysis centers around head-on collision claims, using historical data to uncover trends, evaluate influencing factors, and support better pricing and reserving strategies.
 
-This analysis focuses on historical insurance claims data for head-on collisions to provide actionable insights. The primary goal is to understand which factors most significantly influence claim costs and to provide recommendations to improve pricing and reserving decisions. The dataset includes various factors such as third-party involvement, weather conditions, and the notifier of the claim.
+---
 
-## 2. Key Findings
+## 📊 Project Overview
 
-### A. Distribution of Claim Costs (Incurred)
+The goal of this project is to explore the relationship between various FNOL features and final incurred claim costs. We used a combination of data cleaning, exploratory data analysis (EDA), and statistical techniques to surface actionable insights.
 
-- The incurred claims are heavily right-skewed.
-- Most claims fall in a lower cost range, but a few significantly larger claims inflate the average.
-- These high-value claims pose a significant financial risk.
+---
 
-### B. Notifier Impact on Claims
+## 📁 Dataset
 
-- Claims reported by third parties (CNF) have significantly higher average incurred costs compared to those reported by policyholders (PH).
-- Third-party claims often involve legal disputes, delays, or higher liability exposure.
+- **Type**: Insurance claims data for head-on collisions  
+- **Time span**: Multiple years, enabling trend and seasonality analysis  
+- **Features**: 45 variables, including:
+  - Region of incident
+  - Number of third parties involved
+  - Type of road (motorway, main road, minor road)
+  - Time-based information (month, season)
+  - Notification and claim timing details
 
-### C. Impact of Notification Period
+The dataset's depth and coverage make it suitable for understanding long-term trends and refining predictive models.
 
-- No clear linear relationship was observed between notification period and incurred claim costs.
-- Some of the most expensive claims have longer notification periods.
-- Encouraging quicker notifications may help prevent cost escalation.
+---
 
-### D. Weather Impact on Claims
+## 🧹 Data Cleaning
 
-- Accidents in "wet" weather conditions tend to have higher incurred costs.
-- Wet weather increases the severity of accidents, leading to higher costs.
+Cleaning was performed using **Tableau Prep**, addressing:
 
-### E. Third-Party Involvement by Region
+- Inconsistent formats and corrupted values (e.g., `"n/k"`, `"unknown"`)
+- Duplicate entries
+- Standardizing numerical variables such as `Notification Period` and `Inception to Loss`
 
-- Regions such as Yorkshire and Wales show the highest third-party involvement.
-- These regions also incur the highest average claim costs.
-- Region-specific adjustments in pricing and risk mitigation strategies are recommended.
+---
 
-## 3. Methodology
+## 🔍 Exploratory Data Analysis (EDA)
 
-### A. Data Preprocessing
+We used **Tableau** for visual EDA, uncovering patterns across regions, time periods, and claim complexity.
 
-- Cleaned the dataset to handle missing data.
-- Identified key features such as third-party involvement, weather conditions, and incurred costs.
+---
 
-### B. Exploratory Data Analysis (EDA)
+## 🧠 Key Insights
 
-- Conducted EDA to identify key patterns and relationships in the data.
-- Used visualizations like bar charts and scatter plots to explore the impact of various factors on incurred claim costs.
+### 1. Regional Differences in Incurred Costs
 
-### C. Key Factor Analysis
+- **Scotland** consistently shows the **highest average incurred costs**.
+- **East Anglia** and **the North** also show **elevated costs**.
+- **London**, **East Midlands**, and the **Southwest** show **lower average costs**.
 
-- Focused analysis on:
-  - Third-party involvement
-  - Notifier type
-  - Notification period
-  - Weather conditions
-  - Regional factors
+These differences may relate to accident severity, claims handling practices, or environmental conditions.
 
-## 4. Recommendations
+---
 
-### A. Region-Specific Pricing and Risk Management
+### 2. Seasonality and Monthly Trends
 
-- Adjust pricing models for regions with high third-party involvement and incurred costs (e.g., Yorkshire and Wales).
+- Higher average claim costs occur in **January–March**, likely due to:
+  - Hazardous winter weather
+  - Increased holiday traffic
+- Costs fluctuate throughout the year, indicating **time-based risk factors**.
 
-### B. Improve FNOL Processes
+Understanding these patterns improves **forecasting and pricing accuracy**.
 
-- Implement measures to encourage faster reporting of claims.
-- Prioritize improvements for third-party claim notifications to reduce overall costs.
+---
 
-### C. Weather-Based Risk Adjustments
+### 3. Third-Party Involvement
 
-- Incorporate weather conditions into pricing models.
-- Consider seasonal rate adjustments to mitigate losses during high-risk weather periods.
+- Incurred costs **increase with the number of third parties** involved.
+- A sharp rise is observed when **3 or more third parties** are involved.
+- These complex cases, though less frequent, have a **high financial impact** and require **careful reserving**.
 
-### D. Monitor High-Cost Outliers
+---
 
-- Investigate high-cost outlier claims.
-- Identify additional risk factors and improve early detection to prevent cost escalation.
+### 4. Impact of Road Type
 
-### E. Stakeholder Engagement
+- **Motorways** and **main roads** are associated with **higher average claim costs** due to:
+  - Higher speeds
+  - More severe accidents
+- **Minor roads** show **more variability**, making outcomes **less predictable**.
 
-- Collaborate with claims, pricing, and management teams.
-- Share insights and optimize processes with a focus on region-specific risks and FNOL (First Notification of Loss) improvements.
+| Road Type   | Avg. Incurred Cost | Cost Variability |
+|-------------|---------------------|------------------|
+| Motorways   | High                | Low              |
+| Main Roads  | High                | High             |
+| Minor Roads | Medium              | High             |
 
-## 5. Conclusion
+---
 
-This analysis provides actionable insights into head-on collision claims. By addressing third-party involvement, weather conditions, and regional risk factors, the company can enhance pricing and reserving strategies. Monitoring outliers and refining claims handling processes will further reduce financial exposure.
+## 🧰 Tools Used
+
+- **Tableau**: Data visualization and EDA
+- **Tableau Prep**: Data cleaning and preparation
+- **ChatGPT**: Statistical guidance and correlation analysis
+- **Python (Optional)**: For advanced statistical exploration
+
+---
+
+## 📌 Conclusions
+
+This project demonstrates how FNOL data, when properly cleaned and explored, can yield critical insights into cost drivers and risk patterns. These findings support more accurate:
+
+- Reserving
+- Pricing
+- Operational planning
